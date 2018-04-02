@@ -281,7 +281,8 @@ spec: webidl; urlPrefix: https://heycam.github.io/webidl/
     </p>
 
     <pre class="idl">
-      [Exposed=(Window,Worker)]
+      [SecureContext,
+       Exposed=(Window,Worker)]
       interface BudgetService {
           Promise&lt;double&gt; getCost(OperationType operation);
           Promise&lt;sequence&lt;BudgetState&gt;&gt; getBudget();
@@ -301,13 +302,6 @@ spec: webidl; urlPrefix: https://heycam.github.io/webidl/
     <ol>
       <li>
         Let <var>promise</var> be <a>a new promise</a>.
-      </li>
-      <li>
-        Let <var>origin</var> be the <a>entry settings object</a>'s <a>origin</a>.
-      </li>
-      <li>
-        If the <var>origin</var> is not a <a>secure context</a>, reject <var>promise</var> with a
-        <code>{{SecurityError}}</code> and terminate these steps.
       </li>
       <li>
         Return <var>promise</var> and run the following step <a>in parallel</a>:
@@ -334,10 +328,6 @@ spec: webidl; urlPrefix: https://heycam.github.io/webidl/
       </li>
       <li>
         Let <var>origin</var> be the <a>entry settings object</a>'s <a>origin</a>.
-      </li>
-      <li>
-        If the <var>origin</var> is not a <a>secure context</a>, reject <var>promise</var> with a
-        <code>{{SecurityError}}</code> and terminate these steps.
       </li>
       <li>
         Return <var>promise</var> and run the following step <a>in parallel</a>:
@@ -406,10 +396,6 @@ spec: webidl; urlPrefix: https://heycam.github.io/webidl/
       </li>
       <li>
         Let <var>origin</var> be the <a>entry settings object</a>'s <a>origin</a>.
-      </li>
-      <li>
-        If the <var>origin</var> is not a <a>secure context</a>, reject <var>promise</var> with a
-        <code>{{SecurityError}}</code> and terminate these steps.
       </li>
       <li>
         Return <var>promise</var> and run the following step <a>in parallel</a>:
